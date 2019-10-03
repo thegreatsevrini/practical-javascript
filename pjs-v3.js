@@ -7,14 +7,16 @@ The purpose of this is to learn JS. Not my own code. Just and exciting exercise.
 
 */
 
-//so far, this object has two properties. one is an array to store the todos and the other is a function that shows the todos. 
 let todoList = {
-    todos: ['item 1', 'item 2', 'item 3'],
+    todos: [],
     displayTodos: function() {
-        console.log(this.todos);
+        console.log('My Todos: ', this.todos);
     },
-    addTodo: function(todo) {
-        this.todos.push(todo);
+    addTodo: function(todoText) {
+        this.todos.push({
+            todoText: todoText,
+            completed: false
+        });
         this.displayTodos();
     },
     changeTodo: function(position, newValue) {
@@ -26,3 +28,4 @@ let todoList = {
         this.displayTodos();
     }
 };
+
