@@ -9,11 +9,17 @@ The purpose of this is to learn JS. Not my own code. Just and exciting exercise.
 
 let todoList = {
     todos: [],
-    displayTodos: function() {
-        console.log('My Todos:');
-        for(var i = 0; i < this.todos.length; i++) {
-            console.log(this.todos[i].todoText);
+    displayTodos: function() {   
+        if (this.todos.length  === 0) {
+            console.log('You did all the things already!');
+        } else {
+            console.log('My Todos:');
+            for(var i = 0; i < this.todos.length; i++) {
+                console.log(this.todos[i].todoText);
         }
+    }
+            
+            //print todos as normal
     },
     addTodo: function(todoText) {
         this.todos.push({
