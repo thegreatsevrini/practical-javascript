@@ -78,8 +78,13 @@ let todoList = {
 
 //get access to the display todos button
 let displayTodosButton = document.getElementById('displayTodosButton');
-
+let toggleAllButton = document.getElementById('toggleAllButton');
 //run displayTodos method when someone clicks the displayTodosButton
 displayTodosButton.addEventListener('click', function () {
     todoList.displayTodos();
 });
+
+toggleAllButton.addEventListener('click', function(){
+    todoList.toggleAll();
+});
+//get access to the toggle all button
