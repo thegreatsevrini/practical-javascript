@@ -75,13 +75,18 @@ let todoList = {
     }
 };
 
-
+//this object is what the onclick attribute on the buttons in the html use
 let handlers = {
     displayTodos: function () {
         todoList.displayTodos();
     },
     toggleAll: function(){
         todoList.toggleAll();
+    },
+    addTodo: function(){
+        let addTodoTextInput = document.getElementById('addTodoTextInput');
+        todoList.addTodo(addTodoTextInput.value);
+        addTodoTextInput.value = '';
     }
 };
 
