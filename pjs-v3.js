@@ -13,7 +13,6 @@ let todoList = {
     //determines length of todos and loops through them and
     //logs todos todoText property to the console for each one. 
     displayTodos: function() {
-        
         if ( this.todos.length === 0 ) {
             console.log( 'Your todo list is empty!' );
         } else {
@@ -76,15 +75,13 @@ let todoList = {
     }
 };
 
-//get access to the display todos button
-let displayTodosButton = document.getElementById('displayTodosButton');
-let toggleAllButton = document.getElementById('toggleAllButton');
-//run displayTodos method when someone clicks the displayTodosButton
-displayTodosButton.addEventListener('click', function () {
-    todoList.displayTodos();
-});
 
-toggleAllButton.addEventListener('click', function(){
-    todoList.toggleAll();
-});
-//get access to the toggle all button
+let handlers = {
+    displayTodos: function () {
+        todoList.displayTodos();
+    },
+    toggleAll: function(){
+        todoList.toggleAll();
+    }
+};
+
