@@ -20,6 +20,22 @@
         <button onclick="handlers.addTodo()">Add</button>
         <input id="addTodoTextInput" type="text" placeholder="type new todo here">
     </div>
+
+    <div>
+        <button onclick="handlers.changeTodo()">Change Todo</button>
+        <input id="changeTodoPositionInput" type="number">
+        <input id="changeTodoTextInput" type="text">
+    </div>
+
+    <div>
+        <button onclick="handlers.deleteTodo()">Delete</button>
+        <input id="deleteTodoPositionInput" type="number">
+    </div>
+
+    <div>
+        <button onclick="handlers.toggleCompleted()">Toggle Completed</button>
+        <input id="toggleCompletedPositionInput" type="number">
+    </div>
     
 
     <script src="pjs-v3.js"></script>
