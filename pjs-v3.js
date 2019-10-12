@@ -107,3 +107,16 @@ let handlers = {
     }
 };
 
+//this object is responsible for rendering data to the screen
+//it does not change how the todo list works
+let view = {
+    displayTodos: function(){
+        var todosUl = document.querySelector('ul');
+        todosUl.innerHTML = '';
+        for (var i = 0; i < todoList.todos.length; i++ ) {
+            var todoLi = document.createElement('li');
+            todosUl.appendChild(todoLi);
+        }
+    }
+};
+
