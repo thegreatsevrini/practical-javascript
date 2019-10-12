@@ -6,7 +6,7 @@ The other three, simpler versions, were just typed in chrome dev tools.
 The purpose of this is to learn JS. Not my own code. Just and exciting exercise. As exciting as a todo list can be...
 
 */
-
+//represents todoList array and the buttons that manipulate the data inside
 let todoList = {
     todos: [],
     //adds todo object to todos array
@@ -17,7 +17,7 @@ let todoList = {
         });
         
     },
-    //changes the todoText property in the given array index to new todoText
+    // this object changes the todoText property in the given array index to new todoText
     changeTodo: function(position, todoText) {
         this.todos[position].todoText = todoText;
         
@@ -57,7 +57,7 @@ let todoList = {
     }
 };
 
-//this object is what the onclick attribute on the buttons in the html use
+//this object handles all the user interaction
 let handlers = {
     addTodo: function(){
         let addTodoTextInput = document.getElementById('addTodoTextInput');
@@ -91,7 +91,7 @@ let handlers = {
     }
 };
 
-//this object is responsible for rendering data to the screen
+//this object is responsible for displaying todoList on screen
 //it does not change how the todo list works
 let view = {
     displayTodos: function(){
