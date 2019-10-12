@@ -9,46 +9,28 @@ The purpose of this is to learn JS. Not my own code. Just and exciting exercise.
 
 let todoList = {
     todos: [],
-    //logs message if there are 0 todos otherwise,
-    //determines length of todos and loops through them and
-    //logs todos todoText property to the console for each one. 
-    displayTodos: function() {
-        if ( this.todos.length === 0 ) {
-            console.log( 'Your todo list is empty!' );
-        } else {
-            console.log('My Todos:');
-            for( var i = 0; i < this.todos.length; i++ ) {
-                //check if .completed is true or false for each for loop
-                if ( this.todos[i].completed === true ) {
-                    console.log( '(x)', this.todos[i].todoText );
-                } else {
-                    console.log( '( )', this.todos[i].todoText );
-                }   
-            } 
-         }   
-    },
     //adds todo object to todos array
     addTodo: function(todoText) {
         this.todos.push({
             todoText: todoText,
             completed: false
         });
-        this.displayTodos();
+        
     },
     //changes the todoText property in the given array index to new todoText
     changeTodo: function(position, todoText) {
         this.todos[position].todoText = todoText;
-        this.displayTodos();
+        
     },
     //deletes todo object in given array index
     deleteTodo: function(position) {
         this.todos.splice(position, 1);
-        this.displayTodos();
+        
     },
     toggleCompleted: function(position) {
         let todo = this.todos[position];
         todo.completed = !todo.completed;
-        this.displayTodos();
+        
     },
     toggleAll: function() {
         let totalTodos = this.todos.length;
@@ -71,19 +53,17 @@ let todoList = {
                 this.todos[i].completed = true;
             }
         } 
-        this.displayTodos();  
+          
     }
 };
 
 //this object is what the onclick attribute on the buttons in the html use
 let handlers = {
-    displayTodos: function () {
-        todoList.displayTodos();
-    },
     addTodo: function(){
         let addTodoTextInput = document.getElementById('addTodoTextInput');
         todoList.addTodo(addTodoTextInput.value);
         addTodoTextInput.value = '';
+        view.displayTodos();
     },
     changeTodo: function() {
         var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
@@ -91,19 +71,23 @@ let handlers = {
         todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
         changeTodoPositionInput.value = '';
         changeTodoTextInput.value = '';
+        view.displayTodos();
     }, 
     deleteTodo: function() {
         var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
         todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
         deleteTodoPositionInput.value = '';
+        view.displayTodos();
     },
     toggleCompleted: function() {
         var toggleCompletedPosiitonInput = document.getElementById('toggleCompletedPositionInput');
         todoList.toggleCompleted(toggleCompletedPosiitonInput.valueAsNumber);
         toggleCompletedPosiitonInput.value = '';
+        view.displayTodos();
     },
     toggleAll: function(){
         todoList.toggleAll();
+        view.displayTodos();
     }
 };
 
@@ -124,7 +108,7 @@ let view = {
                 todoTextWithCompletion = '( ) ' + todo.todoText;
             }
 
-            todoLi.textContent = todoTextWithCompletion
+            todoLi.textContent = todoTextWithCompletion;
             todosUl.appendChild(todoLi);
         }
     }
