@@ -135,6 +135,6 @@ let view = {
         });
     }
 };
-view.setUpEventListeners
+view.setUpEventListeners;
 
 
