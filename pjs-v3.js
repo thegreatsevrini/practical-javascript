@@ -117,20 +117,24 @@ let view = {
         deleteButton.textContent = 'Delete';
         deleteButton.className = 'deleteButton';
         return deleteButton;
+    },
+    setUpEventListeners: function() {
+        var todosUl = document.querySelector('ul');
+
+        todosUl.addEventListener('click', function(event) {
+            console.log(event.target.parentNode.id);
+
+            // get the element that was clicked on
+            var elementClicked = event.target;
+
+            // check if element clicked is a delete button
+            if (elementClicked.className === 'deleteButton') {
+                handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
+        
+            }   
+        });
     }
 };
+view.setUpEventListeners
 
-var todosUl = document.querySelector('ul');
 
-todosUl.addEventListener('click', function(event) {
-    console.log(event.target.parentNode.id);
-
-    // get the element that was clicked on
-    var elementClicked = event.target;
-
-    // check if element clicked is a delete button
-    if (elementClicked.className === 'deleteButton') {
-            handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
-        
-    }
-});
